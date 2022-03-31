@@ -1,4 +1,4 @@
-module github.com/PrakPBP/PBP-API-Tools-1120018-1120020-1120026-1120052
+module apiTools
 
 go 1.17
 
