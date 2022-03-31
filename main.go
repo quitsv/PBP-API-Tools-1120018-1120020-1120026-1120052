@@ -1,11 +1,15 @@
 package main
 
 import (
-	"github.com/PBPPrak/apiTools/controllers"
+	"apiTools/controllers"
 )
 
 func main() {
+
+	//goMail
 	message := []byte("Testing masuk 123")
 	controllers.SendEmail("if-20018@students.ithb.ac.id", message)
-	println("Email sent")
+
+	//goRoutine
+	controllers.SendAsync()
 }

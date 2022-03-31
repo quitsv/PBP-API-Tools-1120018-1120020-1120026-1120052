@@ -1,4 +1,4 @@
-module github.com/PBPPrak/apiTools
+module apiTools
 
 go 1.17
 
