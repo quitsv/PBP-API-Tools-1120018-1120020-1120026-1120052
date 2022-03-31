@@ -8,7 +8,7 @@ func main() {
 
 	//goMail
 	message := []byte("Testing masuk 123")
-	to := controllers.GetRecipient().Email
+	to := controllers.GetRecipient(1).Email
 	controllers.SendEmail(to, message)
 
 	//goRoutine
