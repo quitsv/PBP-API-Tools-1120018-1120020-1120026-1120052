@@ -19,7 +19,7 @@ func getSender() User {
 
 	return sender
 }
-func getRecipient() User {
+func GetRecipient() User {
 	db := Connect()
 	defer db.Close()
 
