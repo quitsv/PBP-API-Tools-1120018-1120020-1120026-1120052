@@ -9,7 +9,7 @@ func SendEmail(emailPenerima string) {
 	// Configuration
 	from := "stevianianggila60@gmail.com"
 	password := "NakNik919"
-	to := []string{"if-20026@students.ithb.ac.id"}
+	to := []string{emailPenerima}
 	smtpHost := "smtp.gmail.com"
 	smtpPort := "587"
 
