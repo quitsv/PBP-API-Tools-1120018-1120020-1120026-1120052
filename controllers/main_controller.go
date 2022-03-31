@@ -12,19 +12,19 @@ func getSender() User {
 	defer db.Close()
 
 	var sender User
-	err := db.QueryRow("SELECT email, passwd FROM Users where id = 1").Scan(&sender.Email, &sender.Passwd)
+	err := db.QueryRow("SELECT email, passwd FROM Users where id = 0").Scan(&sender.Email, &sender.Passwd)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	return sender
 }
-func GetRecipient() User {
+func GetRecipient(id int) User {
 	db := Connect()
 	defer db.Close()
 
 	var recipient User
-	err := db.QueryRow("SELECT email FROM Users where id = 2").Scan(&recipient.Email)
+	err := db.QueryRow("SELECT email FROM Users where id = ?", id).Scan(&recipient.Email)
 	if err != nil {
 		log.Fatal(err)
 	}
