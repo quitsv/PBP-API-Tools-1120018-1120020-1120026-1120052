@@ -19,6 +19,18 @@ func getSender() User {
 
 	return sender
 }
+func GetRecipient() User {
+	db := Connect()
+	defer db.Close()
+
+	var recipient User
+	err := db.QueryRow("SELECT email FROM Users where id = 2").Scan(&recipient.Email)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return recipient
+}
 
 func SendEmail(emailPenerima string, message []byte) {
 	// Configuration
@@ -29,7 +41,6 @@ func SendEmail(emailPenerima string, message []byte) {
 
 	// Confirmation
 	println("Sending email to: " + emailPenerima)
-	println("sender email: " + Sender.Email)
 
 	// Create authentication
 	auth := smtp.PlainAuth("", Sender.Email, Sender.Passwd, smtpHost)
@@ -39,4 +50,5 @@ func SendEmail(emailPenerima string, message []byte) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	println("email sent")
 }
